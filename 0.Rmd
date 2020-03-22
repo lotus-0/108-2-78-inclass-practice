@@ -1,9 +1,13 @@
 ---
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 title: "chapter"
 author: "zzz"
 date: "2020/3/22"
+=======
+title: "Untitled"
+>>>>>>> d2f497dfec28ef1f4e2e4d822ff0332de5e064a5
 =======
 title: "Untitled"
 >>>>>>> d2f497dfec28ef1f4e2e4d822ff0332de5e064a5
@@ -19,7 +23,10 @@ knitr::opts_chunk$set(echo = TRUE)
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> d2f497dfec28ef1f4e2e4d822ff0332de5e064a5
 =======
 >>>>>>> d2f497dfec28ef1f4e2e4d822ff0332de5e064a5
 ```{r}
@@ -27,6 +34,9 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> d2f497dfec28ef1f4e2e4d822ff0332de5e064a5
+=======
 >>>>>>> d2f497dfec28ef1f4e2e4d822ff0332de5e064a5
 =======
 >>>>>>> d2f497dfec28ef1f4e2e4d822ff0332de5e064a5
@@ -49,6 +59,7 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -110,3 +121,5 @@ vNum4 <- c(vNum4, vNum1) # 向量疊代 （recursive vector concatenate）
 =======
 >>>>>>> d2f497dfec28ef1f4e2e4d822ff0332de5e064a5
 
+=======
+>>>>>>> d2f497dfec28ef1f4e2e4d822ff0332de5e064a5
