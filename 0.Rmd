@@ -54,10 +54,50 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 ##packages
 
+```{r}
 library(googlesheet4)
 library(dplyr)
 library(lubridate)
+```
 
+##create an object
+```{r}
+my_108_total_credits <- 15
+_108_total_credits <- 15
+108_total_credits <- 15
+_my_108_total_credits <- 15
+my.108.total_credits <- 15
+.108.total_credits <- 15 # 隱藏變數
+.my.108.total_credits <- 15
+我的108學年總學分數 <- 15
+`我的108學年總學分數` <- 15 # 特殊名稱處理，`不是名稱的一部份
+`.108.total_credits` <- 15
+```
+
+
+
+##calling an object
+```{r}
+我的年紀 <- 18
+my_age <- 我的年紀
+```
+
+```{r}
+a <- 15 # 變數設定
+b <- a # 呼叫a的值，用來設定變數b的值，相當於 b <- 15
+```
+
+##Atomic Vector
+```{r}
+vNum1 <- c(-1,5)
+vNum2 <- c(2,3)
+vNum4 <- c() # 空向量
+```
+
+```{r}
+vNum3 <- c(vNum2, vNum1)
+vNum4 <- c(vNum4, vNum1) # 向量疊代 （recursive vector concatenate）
+```
 
 
 
@@ -69,3 +109,4 @@ library(lubridate)
 >>>>>>> d2f497dfec28ef1f4e2e4d822ff0332de5e064a5
 =======
 >>>>>>> d2f497dfec28ef1f4e2e4d822ff0332de5e064a5
+
