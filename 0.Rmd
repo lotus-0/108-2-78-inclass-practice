@@ -110,12 +110,27 @@ vNum3 <- c(vNum2, vNum1)
 vNum4 <- c(vNum4, vNum1) # 向量疊代 （recursive vector concatenate）
 ```
 
+<<<<<<< HEAD
 exDataPost80s <- read_csv("https://www.dropbox.com/s/rc6t40gsxduysz6/exDataPost80s.csv?dl=1")hypothesisData <- read_csv("https://www.dropbox.com/s/0etoflih5eqc0bc/hypothesisData.csv?dl=1")
 
+=======
+exDataPost80s <- read_csv("https://www.dropbox.com/s/rc6t40gsxduysz6/exDataPost80s.csv?dl=1")
+hypothesisData <- read_csv("https://www.dropbox.com/s/0etoflih5eqc0bc/hypothesisData.csv?dl=1")
+>>>>>>> eac3b036eebdaf9152b0b09507c42a82fffb5294
 
+```{r}
+studentId <- c(410773002, 410773015)
+studentId <- as.character(studentId)
+class(studentId)
+```
 
-
-
+```{r}
+studenttime <- c(
+ymd_hms("2020-03-04T08:15:26Z"),
+ymd_hms("2020-03-18 15:48:32",tz=Asia/Taipei),
+ymd_hms("2020-03-18 15:48:32",tz=Asia/Taipei))
+studenttime
+```
 
 
 =======
