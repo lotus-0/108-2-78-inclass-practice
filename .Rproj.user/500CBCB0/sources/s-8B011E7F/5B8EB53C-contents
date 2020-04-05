@@ -58,7 +58,61 @@ print(`小明108學年課表C`)
 ```
 
 
+##practice1
+```{r}
+`108學年修課` <- list(
+  name = "小明",
+  semester = list(
+    `學年` = 108,
+    `學期` = 1,
+    `課程` = list(
+      list(
+        teachername = "Alice",
+        classname = "個體經濟學",
+        grade = 85
+      ),
+      list(
+        teachername = "Mark",
+        classname = "總體經濟學",
+        grade = 73
+      )
+    ),
+    `學年` = 108,
+    `學期` = 2,
+    `課程` = list(
+      teachername = "Jason",
+      classname = "作業研究",
+      grade = 90
+    )
+  )
+)
+print(`108學年修課`)
+```
 
+
+##practice2
+```{r}
+library(lubridate)
+`天氣預報` <- list(
+  `台北市` = list(
+    date = list(
+      today = ymd("2020-03-31"),
+      tomorrow = ymd("2020-04-01")
+    ),
+    highest = 25,
+    lowest = 18
+  ),
+  `新北市` = list(
+    date = list(
+      today = ymd("2020-03-31"),
+      tomorrow = ymd("2020-04-01")
+    ),
+    highest = 24,
+    lowest = 15
+  )
+)
+print(`天氣預報`)
+```
 
 
 
