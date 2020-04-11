@@ -62,8 +62,22 @@ str(newTaipeiCityVaccine[["result"]] , max.level = 1)
 str(tainanSportsMap[c(1,50,100)] , max.level = 1)
 ```
 
+##用名字選[c("name1","name2",...)]
 
+```{r}
+fromJSON("https://www.dropbox.com/s/qnm9bnz7vccrvcz/taipeiNightMarkets.json?dl=1", simplifyDataFrame = F) -> taipeiNightMarkets
+```
 
+```{r}
+str(taipeiNightMarkets[c(1,5,9)] , max.level = 1)
+str(taipeiNightMarkets[c("寧夏觀光夜市","南機場夜市")] , max.level = 1)
+```
+
+##用「要/不要」邏輯向量選[c(T,T,F,...)]
+
+```{r}
+
+```
 
 
 
