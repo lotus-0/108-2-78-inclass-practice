@@ -79,6 +79,13 @@ str(taipeiNightMarkets[c("寧夏觀光夜市","南機場夜市")] , max.level = 
 str(taipeiNightMarkets[c(T,F,F,F,T,F,F,F,F,T,F,F,F,T)] , max.level = 1)
 ```
 
+```{r}
+c(T,F,F,F,T,F,F,F,F,T,F,F,F,T) -> chosenMarket
+chosenMarket <- rep(F,14)
+chosenMarket[c(1,5,10,14)] <- T
+print(chosenMarket)
+str(taipeiNightMarkets[chosenMarket] , max.level = 1)
+```
 
 
 
