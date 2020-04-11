@@ -56,6 +56,11 @@ str(newTaipeiCityVaccine$result , max.level = 1)
 str(newTaipeiCityVaccine[["result"]] , max.level = 1)
 ```
 
+##用位置選[c(...)]
+
+```{r}
+str(tainanSportsMap[c(1,50,100)] , max.level = 1)
+```
 
 
 
