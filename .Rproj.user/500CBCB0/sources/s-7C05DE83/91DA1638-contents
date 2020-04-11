@@ -29,6 +29,7 @@ plot(pressure)
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
+##用位置選[[.]]
 
 ```{r}
 library(jsonlite)
@@ -41,7 +42,19 @@ length(tainanSportsMap)
 tainanSportsMap[[500]]
 ```
 
+##用名字選$.
 
+```{r}
+fromJSON("http://data.ntpc.gov.tw/api/v1/rest/datastore/382000000A-000157-002",
+         simplifyDataFrame = F) -> newTaipeiCityVaccine
+
+names(newTaipeiCityVaccine)
+```
+
+```{r}
+str(newTaipeiCityVaccine$result , max.level = 1)
+str(newTaipeiCityVaccine[["result"]] , max.level = 1)
+```
 
 
 
