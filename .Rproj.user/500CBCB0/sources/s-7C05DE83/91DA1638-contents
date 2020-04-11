@@ -76,7 +76,7 @@ str(taipeiNightMarkets[c("寧夏觀光夜市","南機場夜市")] , max.level = 
 ##用「要/不要」邏輯向量選[c(T,T,F,...)]
 
 ```{r}
-
+str(taipeiNightMarkets[c(T,F,F,F,T,F,F,F,F,T,F,F,F,T)] , max.level = 1)
 ```
 
 
