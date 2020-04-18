@@ -139,9 +139,29 @@ str(get1[[1]][[1]][[2]])
 str(get2[[1]][[1]][[1]][[2]])
 ```
 
+##list應用
+```{r}
+today <- list(
+  list("台北市",c(highest_temp = 25),c(lowest_temp = 18)),
+  list("新北市",highest_temp=c(highest_temp = 24),c(lowest_temp = 15)))
+tomorrow <- list(
+  list("台北市",c(highest_temp = 25),c(lowest_temp = 18)),
+  list("新北市",highest_temp=c(highest_temp = 24),c(lowest_temp = 15)))
 
+weather <- list(today,tomorrow)
 
+print(weather)
+```
 
+```{r}
+weather[[1]][[2]][[2]] # 今天/新北市/highest_temp
+weather[[2]][[2]][[2]] # 明天/新北市/highest_temp
+```
+
+```{r}
+weather[[1]][[2]]$highest_temp # 今天/新北市/highest_temp
+weather[[2]][[2]]$highest_temp # 明天/新北市/highest_temp
+```
 
 
 
