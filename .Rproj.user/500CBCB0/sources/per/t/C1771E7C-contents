@@ -161,8 +161,25 @@ list1[[2]][-c(3,5)] -> list1[[2]]
 str(list1)
 ```
 
+```{r}
+str(list1)
+list1[[2]][c(1,2)] <- NULL
+str(list1)
+```
 
+```{r}
+library(jsonlite)
+fromJSON("https://data.ntpc.gov.tw/od/data/api/54DDDC93-589C-4858-9C95-18B2046CC1FC?$format=json", simplifyDataFrame = F) -> newTaipeiYouBike
+str(newTaipeiYouBike)
+```
 
+```{r}
+newTaipeiYouBike[[1]][-9] -> newTaipeiYouBike[[1]]
+str(newTaipeiYouBike[[1]])
+
+newTaipeiYouBike[[2]][[2]] <- NULL
+str(newTaipeiYouBike[[2]])
+```
 
 
 

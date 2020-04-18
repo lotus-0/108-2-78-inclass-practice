@@ -5,16 +5,16 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2554327664",
+    "hash" : "2836483060",
     "id" : "C1771E7C",
-    "lastKnownWriteTime" : 1587189461,
-    "last_content_update" : 1587189464412,
+    "lastKnownWriteTime" : 1587190681,
+    "last_content_update" : 1587190681569,
     "path" : "~/GitHub/108-2-78-inclass-practice/3.Rmd",
     "project_path" : "3.Rmd",
     "properties" : {
-        "cursorPosition" : "159,15",
+        "cursorPosition" : "175,0",
         "last_setup_crc32" : "3502C821bb338d19",
-        "scrollLine" : "149"
+        "scrollLine" : "154"
     },
     "read_only" : false,
     "read_only_alternatives" : [
