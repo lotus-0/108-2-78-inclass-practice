@@ -126,8 +126,13 @@ courseUpdate <- list(
     credits = 3,
     time_place = list(
       list(
-        weekday = list("星期三","星期二"),
-        time_slots = list(c(7,8,9),5),
+        weekday = "星期三",
+        time_slots = c(7,8,9),
+        classroom = "商2F05"
+      ),
+      list(
+        weekday = "星期二",
+        time_slots = 5,
         classroom = "商2F05"
       )
     ) 
@@ -163,7 +168,7 @@ List of 2
 可用str(accidents)來檢查你的答案是否有符合格式。
 ```{r ans33}
 accidents <- list(
-  time = ymd("2014-01-01" , tz="Asia/Taipei"),
+  time = lubridate:: ymd("2014-01-01"),
   bureaus = list(
     `板橋分局` = list(
       type = "駕駛人過失-其他",
@@ -187,6 +192,7 @@ accidents
 ```{r data4}
 source("https://www.dropbox.com/s/bvs0m4oxw7yaqxw/108-2-hw1-3.R?dl=1")
 fiveReceipts <- .randomReceipts(n=5)
+fiveReceipts
 ```
 
 ### 4.1
@@ -212,7 +218,7 @@ chr_fiveReceipts
 ### 4.4
 若我們想要把fiveReceipts的螢幕顯示值用sum()函數加總，在只使用as.{class name}函數下，要怎麼做？把sum完的結果存在sum_fiveReceipts。
 ```{r ans44}
-sum_fiveReceipts <- sum(as.numeric(fiveReceipts))
+sum_fiveReceipts <- sum(as.integer(as.character(fiveReceipts)))
 sum_fiveReceipts
 ```
 
@@ -234,7 +240,7 @@ yy <- 2020
 mm <- "Mar."
 dd <- 15
 event_list <- list(
-  time=(paste0(yy,",",mm,dd)),
+  time=lubridate::ymd(paste0(yy,",",mm,dd)),
   list(
     name="小明",
     `是否完成`=TRUE,
@@ -243,5 +249,7 @@ event_list <- list(
       "anchor","axe")
 )
 )
+str(event_list)
+event_list
 ```
 
