@@ -2,8 +2,8 @@
 title: "homework 4"
 output: html_document
 params:
-  studentName: "你的名字"
-  studentID: "你的學號"
+  studentName: "李孟桀"
+  studentID: "410873101"
 ---
 
 # 注意事項
@@ -36,6 +36,7 @@ str_extract_all(twoNames, "段(兄|兄弟)")
 ```
 請在小明的target regex後面加上「後面鄰居不能有弟」的regex描述並存在back_regex (class character) 裡. (hint: 查cheat sheet look around)
 ```{r ans1}
+back_regex <- 
 # back_regex
 ```
 若你的答案正確，執行以下程式會得到一個段兄，一個段兄弟。
@@ -53,7 +54,9 @@ jsonlite::fromJSON("https://www.dropbox.com/s/kv0xa0spa6q5l7q/semiGodsSemiDevils
 ### 2.1
 取出回數為"P2"的內文存在context_picked (class character). 
 ```{r ans21}
-# context_picked
+str(semiGodsSemiDevils)
+semiGodsSemiDevils$data[[1]][[2]][[3]] -> context_picked
+context_picked
 ```
 
 ### 2.2
@@ -70,7 +73,9 @@ List of 1
 ```
 
 ```{r ans22}
-# context_picked_split
+str_split(context_picked , "\\s\\s") -> context_picked_split
+str(context_picked_split)
+context_picked_split
 ```
 
 ### 2.3
@@ -79,13 +84,16 @@ List of 1
 可能有用的提示: 出現0或1次的複製次數是用?號接在文字的後面。
 
 ```{r ans23}
-# mention_duan
+str_extract_all(context_picked_split[[1]] , "段譽|段兄|段兄弟|段大哥|段相公|段君|及姓段的小子") -> mention_duan
+mention_duan
 ```
 
 ### 2.4
 使用`unlist()`函數將mention_duan轉成字串後用`table()`函數統計段譽各稱號被提到的次數，並將table結果存在table_duan (class table)。
 ```{r ans24}
-# table_duan
+unlist(mention_duan) -> mention_duan
+table(mention_duan) -> table_duan
+table_duan
 ```
 
 
