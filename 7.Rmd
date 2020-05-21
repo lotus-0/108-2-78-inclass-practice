@@ -137,8 +137,12 @@ map(dance[[8]]$showInfo , ~ .x$location)
 
 1請抓出每條路線的Id(路線代碼)、providerId(業者代碼)、providerName(業者中文名稱)、nameZh(中文名稱)
 ```{r}
-jsonlite::fromJSON("https://data.ntpc.gov.tw/od/data/api/67BB3C2B-E7D1-43A7-B872-61B2F082E11B?$format=json", simplifyDataFrame = F) ->
-  busRoutes
+jsonlite::fromJSON("https://data.ntpc.gov.tw/api/datasets/34B402A8-53D9-483D-9406-24A682C2D6DC/json/preview", simplifyDataFrame = F) -> busRoutes
+
+map(busRoutes , ~ .x$Id)
+map(busRoutes , ~ .x$providerId)
+map(busRoutes , ~ .x$providerName)
+map(busRoutes , ~ .x$nameZh)
 ```
 
 2.
