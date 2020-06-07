@@ -1,0 +1,3 @@
+"0","`全宗名編號` <- str_extract(data228, ""[:alnum:](?=/)"")
+"
+"2","argument is not an atomic vector; coercing"

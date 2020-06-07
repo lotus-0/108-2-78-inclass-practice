@@ -40,15 +40,14 @@ jsonlite::fromJSON("https://www.dropbox.com/s/es19f62rijrd8i7/studentHeight.json
 請將「學年度」及「年齡」都改成ordered factor, levels順序以其文字數值從小排到大。( 答案物件studentHeights本身)
 
 ```{r ans11}
-studentHeights$`學年度` <- as.integer(studentHeights$`學年度`)
 studentHeights$`學年度` <- 
-  factor(studentHeights$`學年度` , ordered = T)
-studentHeights$`學年度` <- sort(studentHeights$`學年度`)
+  factor(studentHeights$`學年度`, ordered = T)
+studentHeights$`學年度`
 
 studentHeights$`年齡` <- as.integer(studentHeights$`年齡`)
 studentHeights$`年齡` <- 
-  factor(studentHeights$`年齡` , ordered = T)
-studentHeights$`年齡` <- sort(studentHeights$`年齡`)
+  factor(studentHeights$`年齡`, ordered = T)
+studentHeights$`年齡`
 
 studentHeights
 ```
@@ -57,14 +56,13 @@ studentHeights
 請在studentHeights新增「年齡層」元素（class ordered factor），其類別排序為6-8 < 9-12 < 13-15三類年齡層。
 ```{r ans12}
 studentHeights$`年齡層` <- 
-  factor(studentHeights$`年齡層` , ordered = T)
-levelnames <- levels(studentHeights$`年齡層`)
-startages <- stringr::str_extract(levelnames , "^[0-9]+")
-startages <- as.integer(startages)
-names(startages) <- levelnames
-startages <- sort(startages)
-studentHeights$`年齡層` <- 
-  factor(studentHeights$`年齡層` , names(startages))
+  factor(studentHeights$`年齡`, ordered=T)
+levels(studentHeights$`年齡層`) <-
+  c(
+    rep("6-8",3),
+    rep("9-12",4),
+    rep("13-15",3)
+  )
 studentHeights$`年齡層`
 ```
 
@@ -72,14 +70,33 @@ studentHeights$`年齡層`
 請創造一個named numeric vector, averageHeightByGroup (class numeric, length=3) 其值分別是三組年齡層各自所包含年齡下不分性別身高的平均（即第一個值是所有6-8歲不分學年度、不分性別身高（總計身高）的平均，再來是9-12歲，最後是13-15歲），而此vector的元素名稱也分別是"6-8", "9-12", "13-15" (hint: 數值向量x元素平均, 可用mean(x)求得； 這題也考驗同學組合數個「要不要」向量`pick_XXX`)
 
 ```{r ans13}
-# averageHeightByGroup
+pick_6.8 <- studentHeights$`年齡層` == "6-8"
+pick_9.12 <- studentHeights$`年齡層` == "9-12"
+pick_13.15 <- studentHeights$`年齡層` == "13-15"
+pick_total <- studentHeights$`類別` == "總計" 
+averageHeightByGroup <- c(
+  `6-8`=mean(studentHeights$`平均身高`[pick_6.8 & pick_total]),
+  `9-12`=mean(studentHeights$`平均身高`[pick_9.12 & pick_total]),
+  `13-15`=mean(studentHeights$`平均身高`[pick_13.15 & pick_total])
+)
+
+averageHeightByGroup
 ```
 
 ### 1.4 性別差異
 請創造一個named numeric vector, heightDifferenceByGroup (class numeric, length=3) 其值分別是三組年齡層各自所包含年齡下的「男性平均」減去「女性平均」（即第一個值是所有6-8歲不分學年度的男女平均差異，再來是9-12歲，最後是13-15歲），而此vector的元素名稱也分別是"6-8", "9-12", "13-15" (hint: 數值向量x元素平均, 可用mean(x)求得)
 
 ```{r ans14}
-# heightDifferenceByGroup
+pick_male <- studentHeights$`類別`=="男"
+pick_female <- studentHeights$`類別`=="女"
+
+heightDifferenceByGroup <- c(
+  `6-8`=mean(studentHeights$`平均身高`[pick_6.8 & pick_male])-
+    mean(studentHeights$`平均身高`[pick_6.8 & pick_female]),
+  `9-12`=mean(studentHeights$`平均身高`[pick_9.12 & pick_male])-mean(studentHeights$`平均身高`[pick_9.12 & pick_female]),
+  `13-15`=mean(studentHeights$`平均身高`[pick_13.15 & pick_male]-mean(studentHeights$`平均身高`[pick_13.15 & pick_female]))
+)
+heightDifferenceByGroup
 ```
 
 
@@ -93,7 +110,7 @@ jsonlite::fromJSON("https://www.dropbox.com/s/bp0w8tjgrhi79x7/sameMajorDifferent
 請寫下「一個」字串的regex字串向量，稱之為realEstateRegex （class character, length=1）,
 
 ```{r ans21}
-realEstateRegex <- "(不動系|不動產城鄉學系|不動產與城鄉環境學系)"
+realEstateRegex <- "不動產?與?城?鄉?環?境?學?系"
 realEstateRegex
 ```
 

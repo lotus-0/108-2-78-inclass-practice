@@ -346,7 +346,7 @@ table(garbageRoutes$route) -> C
 sort(C) -> C
 names(C) -> levels(garbageRoutes$route)
 
-factor(str_extract(garbageRoutes$linename , "(?=路線)[:graph:]+")) -> garbageRoutes$time
+factor(str_extract(garbageRoutes$linename , "(?<=路線)[:graph:]+")) -> garbageRoutes$time
 
 ```
 

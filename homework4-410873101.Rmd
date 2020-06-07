@@ -36,8 +36,8 @@ str_extract_all(twoNames, "段(兄|兄弟)")
 ```
 請在小明的target regex後面加上「後面鄰居不能有弟」的regex描述並存在back_regex (class character) 裡. (hint: 查cheat sheet look around)
 ```{r ans1}
-back_regex <- 
-# back_regex
+back_regex <- "(?!弟)" 
+back_regex
 ```
 若你的答案正確，執行以下程式會得到一個段兄，一個段兄弟。
 ```{r}
@@ -55,7 +55,7 @@ jsonlite::fromJSON("https://www.dropbox.com/s/kv0xa0spa6q5l7q/semiGodsSemiDevils
 取出回數為"P2"的內文存在context_picked (class character). 
 ```{r ans21}
 str(semiGodsSemiDevils)
-semiGodsSemiDevils$data[[1]][[2]][[3]] -> context_picked
+semiGodsSemiDevils$data[[1]][3,2] -> context_picked
 context_picked
 ```
 
@@ -84,7 +84,7 @@ context_picked_split
 可能有用的提示: 出現0或1次的複製次數是用?號接在文字的後面。
 
 ```{r ans23}
-str_extract_all(context_picked_split[[1]] , "段譽|段兄|段兄弟|段大哥|段相公|段君|及姓段的小子") -> mention_duan
+str_extract_all(context_picked_split[[1]] , "(段譽|段兄|段兄弟|段大哥|段相公|段君|姓段的小子)(?!弟)") -> mention_duan
 mention_duan
 ```
 

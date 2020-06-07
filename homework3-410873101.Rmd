@@ -65,15 +65,20 @@ mostViolatedArticle
 ### 1.4 最常違反法條之內容
 找出最常違反條款的法條內容（可參見lawContent這個元素），並將此內容存在mostViolatedArticle_content (class character, length=1)
 ```{r ans14}
-table(badEmployers$lawContent) == max(table(badEmployers$lawContent)) -> B
-names(table(badEmployers$lawContent)[B]) -> mostViolatedArticle_content
+badEmployers$lawContent[names(mostViolatedArticle) == badEmployers$law][[1]] -> mostViolatedArticle_content
 mostViolatedArticle_content
 ```
 
 ### 1.5 處份日期最常落在幾月
 找出處份日期最常出現的月份並存在popularSentenceMonth（class character, length=1）：
 ```{r ans15}
-table(badEmployers$dt)
+ymd(badEmployers$dt) -> badEmployers$dt
+month(badEmployers$dt) -> sentenceMonths
+table(sentenceMonths) -> table_sentenceMonths
+pick_highestMonth <- 
+  table_sentenceMonths == max(table_sentenceMonths)
+names(table_sentenceMonths[pick_highestMonth]) -> 
+  popularSentenceMonth
 # popularSentenceMonth
 ```
 
@@ -99,14 +104,14 @@ source("https://www.dropbox.com/s/5oy56om4q0857tt/student10.R?dl=1",encoding = "
 小知識:
 factor是從1開始的整數，沒有0喔。
 ```{r ans21}
-chinese <- ordered(factor(table$`級分`+1))
+ordered(factor(table$`國文` , levels=table$`國文`[c(16:1)])) -> chinese
 chinese
 ```
 
 ### 2.2 str_detect()
 請取出10位學生中志願為北大的學生名字並存到名為ntpu_namelist的答案物件(class為chr):
 ```{r ans22}
-str_detect(students10$`志願`,"北大") -> ntpu_namelist
+students10$`姓名`[str_detect(students10$`志願`,"北大")] -> ntpu_namelist
 ntpu_namelist
 ```
 
@@ -141,8 +146,7 @@ ntpu_eco
 
 請將榜單文字儲存到名為congrats的答案物件(class為chr)。
 ```{r ans24}
-admit <- ntpu_eco %in% namelist
-congrats <- "恭喜 陳依祈、林溺 同學錄取國立臺北大學經濟系"
-class(congrats)
+ntpu_eco[ntpu_eco %in% namelist] -> A
+paste("恭喜" , A , "同學錄取國立臺北大學經濟系") -> congrats
 congrats
 ```
