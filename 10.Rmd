@@ -197,6 +197,19 @@ howEarly <- deadline - lubridate::ymd_hms(student_i_time, tz="Asia/Taipei")
 print(howEarly)
 ```
 
+#if…else if… else
+
+```{r}
+if(condition A){
+  body for A 
+} else if(condition B){
+  body for B
+} else if(condition C){
+  body for C
+} else {
+  body for none of the above
+}
+```
 
 
 
