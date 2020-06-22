@@ -211,6 +211,19 @@ if(condition A){
 }
 ```
 
+```{r}
+readline("請輸入你的成績（整數）： ") -> grade # 單獨執行
+
+if(grade >=90){
+  print("優")
+} else if(grade>=80 & grade<=89){
+  print("良")
+} else if(grade>=70 & grade<=79){
+  print("尚可")
+} else {
+  print("待加強")
+}
+```
 
 
 
